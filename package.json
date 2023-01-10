@@ -1,20 +1,26 @@
 {
   "name": "display-html-action",
   "version": "1.0.0",
-  "description": "",
+  "description": "Github Action used to display values from JSON file",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "format": "prettier --write 'src/**/*.ts'",
+    "format-check": "prettier --check 'src/**/*.ts'"
   },
   "keywords": [],
   "author": "Guilherme Scaldelai <gui.mochila@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "@actions/core": "^1.10.0",
-    "@actions/github": "^5.1.1"
+    "@actions/github": "^5.1.1",
+    "handlebars": "^4.7.7"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
+    "eslint": "^8.31.0",
+    "prettier": "^2.8.2",
     "typescript": "^4.9.4"
   }
 }

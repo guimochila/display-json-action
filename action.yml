@@ -1,8 +1,9 @@
 name: 'Display JSON values'
 description: 'Display JSON values in your actions'
+author: 'Guilherme Scaldelai'
 inputs:
-  json-value:
-    description: 'JSON values to be displayed'
+  file:
+    description: 'JSON file to read the values'
     required: true
 runs:
   using: 'node16'
