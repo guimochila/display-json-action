@@ -1,4 +1,8 @@
-on: [push]
+name: 'Testing display-json action'
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
 
 jobs:
   display-json:
