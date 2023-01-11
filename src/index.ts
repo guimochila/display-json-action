@@ -2,7 +2,8 @@ import fs from 'fs'
 import * as core from '@actions/core'
 import path from 'path'
 import Handlebars from 'handlebars'
-import github from '@actions/github'
+import { Octokit } from '@octokit/core'
+import { restEndpointMethods } from '@octokit/plugin-rest-endpoint-methods'
 
 function htmlTemplate(): string {
   return `
@@ -34,8 +35,8 @@ async function run(): Promise<void> {
     const token = core.getInput('token', { required: true })
     const file = core.getInput('file', { required: true })
 
-    // @ts-ignore
-    const octokit = new github.getOctokit(token)
+    const MyOctoKit = Octokit.plugin(restEndpointMethods)
+    const octokit = new MyOctoKit({ auth: token })
 
     const fileContent = readJSONFile(file)
     const template = Handlebars.compile(htmlTemplate())
