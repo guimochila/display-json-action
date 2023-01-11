@@ -16,3 +16,4 @@ jobs:
           repo: ${{ github.event.repository.name }}
           pr_number: ${{ github.event.number }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          file: ./test.json

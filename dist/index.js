@@ -75,13 +75,14 @@ function run() {
             const pr_number = core.getInput('pr_number', { required: true });
             const token = core.getInput('token', { required: true });
             const file = core.getInput('file', { required: true });
-            const octokit = github_1.default.getOctokit(token);
+            // @ts-ignore
+            const octokit = new github_1.default.getOctokit(token);
             const fileContent = readJSONFile(file);
             const template = handlebars_1.default.compile(htmlTemplate());
             if (!fileContent) {
                 throw new Error('Error reading file');
             }
-            octokit.rest.issues.createComment({
+            yield octokit.rest.issues.createComment({
                 owner,
                 repo,
                 issue_number: parseInt(pr_number),

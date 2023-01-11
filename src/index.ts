@@ -34,7 +34,8 @@ async function run(): Promise<void> {
     const token = core.getInput('token', { required: true })
     const file = core.getInput('file', { required: true })
 
-    const octokit = github.getOctokit(token)
+    // @ts-ignore
+    const octokit = new github.getOctokit(token)
 
     const fileContent = readJSONFile(file)
     const template = Handlebars.compile(htmlTemplate())
@@ -43,7 +44,7 @@ async function run(): Promise<void> {
       throw new Error('Error reading file')
     }
 
-    octokit.rest.issues.createComment({
+    await octokit.rest.issues.createComment({
       owner,
       repo,
       issue_number: parseInt(pr_number),
