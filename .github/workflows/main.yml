@@ -6,6 +6,7 @@ on:
 
 jobs:
   display-json:
+    permissions: write-all
     runs-on: ubuntu-latest
     name: Display JSON values
     steps:
