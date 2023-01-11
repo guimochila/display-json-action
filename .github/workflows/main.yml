@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  display-json:
+    runs-on: ubuntu-latest
+    name: Display JSON values
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.event.repository.name }}
+          owner: ${{ github.event.number }}
+          owner: ${{ secrets.GITHUB_TOKEN }}
