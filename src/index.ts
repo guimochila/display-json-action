@@ -35,8 +35,7 @@ async function run(): Promise<void> {
       throw new Error('Error reading file')
     }
 
-    console.log(template(JSON.parse(fileContent)))
-    console.log(JSON.parse(fileContent))
+    core.setOutput('content', template(JSON.parse(fileContent)))
   } catch (error) {
     if (error instanceof Error) {
       core.setFailed(error.message)

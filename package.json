@@ -2,10 +2,13 @@
   "name": "display-html-action",
   "version": "1.0.0",
   "description": "Github Action used to display values from JSON file",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsc",
+    "compile": "ncc build dist/index.js",
+    "build:compile": "npm run build && npm run compile",
+    "clean": "rimraf dist/",
     "format": "prettier --write 'src/**/*.ts'",
     "format-check": "prettier --check 'src/**/*.ts'"
   },
@@ -19,8 +22,10 @@
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
+    "@vercel/ncc": "^0.36.0",
     "eslint": "^8.31.0",
     "prettier": "^2.8.2",
+    "rimraf": "^3.0.2",
     "typescript": "^4.9.4"
   }
 }
