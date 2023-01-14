@@ -6,6 +6,7 @@ on:
 
 jobs:
   display-json:
+    permissions: write-all
     runs-on: ubuntu-latest
     name: Display JSON values
     steps:
@@ -16,3 +17,4 @@ jobs:
           repo: ${{ github.event.repository.name }}
           pr_number: ${{ github.event.number }}
           token: ${{ secrets.GITHUB_TOKEN }}
+          file: ./test.json
